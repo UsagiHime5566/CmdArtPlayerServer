@@ -290,7 +290,7 @@ namespace CmdArtPlayerServer
 
         async void DelayReplay()
         {
-            await Task.Delay(5000);
+            await Task.Delay(3000);
             SocketSend("Play");
         }
 
