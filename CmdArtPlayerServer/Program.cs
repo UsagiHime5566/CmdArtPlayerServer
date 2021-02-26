@@ -14,6 +14,8 @@ namespace CmdArtPlayerServer
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Program by Artpower. (2021)\n");
+
             int maxUsers = 2;
             int port = 25568;
 
@@ -74,7 +76,8 @@ namespace CmdArtPlayerServer
             while (true)
             {
                 string input = Console.ReadLine();
-                SocketSend(input);
+                if(!string.IsNullOrEmpty(input))
+                    SocketSend(input);
             }
         }
 
@@ -215,7 +218,7 @@ namespace CmdArtPlayerServer
                 }
                 i++;
             }
-            Debug.Log($"total message {i} send.");
+            Debug.Log($"total message {i} send.  ({DateTime.Now})");
         }
 
         void ClearThreads()
@@ -280,7 +283,7 @@ namespace CmdArtPlayerServer
 
             if(totalEnd >= maxUsers)
             {
-                Debug.Log("All Video Finished. Wait for replay...");
+                Debug.Log($"All Video Finished. Wait for replay... ({DateTime.Now})");
 
 
                 totalEnd = 0;
